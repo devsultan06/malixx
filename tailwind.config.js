@@ -28,6 +28,30 @@ export default {
           500: '#64748b',
         },
       },
+      animation: {
+        'marquee': 'marquee 28s linear infinite',
+        'marquee-reverse': 'marquee-reverse 28s linear infinite',
+        'float': 'float 5s ease-in-out infinite',
+        'pulse-subtle': 'pulseSubtle 3s ease-in-out infinite',
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        'marquee-reverse': {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0%)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-8px)' },
+        },
+        pulseSubtle: {
+          '0%, 100%': { opacity: '0.4' },
+          '50%': { opacity: '0.8' },
+        },
+      },
       letterSpacing: {
         tighter: '-0.04em',
         tight: '-0.02em',

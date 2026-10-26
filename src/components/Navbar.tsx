@@ -6,7 +6,7 @@ export const Navbar = () => {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30)
+    const onScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -20,74 +20,92 @@ export const Navbar = () => {
   ]
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-[#060608]/90 backdrop-blur-lg border-b border-white/[0.06] py-4'
-          : 'bg-transparent py-6'
-      }`}
-    >
-      <div className="max-w-6xl mx-auto px-5 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2.5">
-          <img src="/logo.jpg" alt="MALIXX" className="w-8 h-8 rounded-full object-cover border border-zinc-800" />
-          <span className="font-display font-extrabold text-base tracking-wide text-white">
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 sm:py-5 px-4 sm:px-6">
+      <div
+        className={`max-w-5xl mx-auto rounded-full transition-all duration-300 px-5 sm:px-6 py-3 flex items-center justify-between ${
+          scrolled
+            ? 'bg-[#0a0b11]/85 backdrop-blur-xl border border-white/[0.09] shadow-2xl shadow-black/60'
+            : 'bg-[#0c0e14]/50 backdrop-blur-md border border-white/[0.05]'
+        }`}
+      >
+        {/* Brand identity */}
+        <a href="#" className="flex items-center gap-3 group">
+          <div className="relative">
+            <img
+              src="/logo.jpg"
+              alt="MALIXX"
+              className="w-8 h-8 rounded-full object-cover border border-white/20 group-hover:scale-105 transition-transform"
+            />
+            <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-[#0a0b11]" />
+          </div>
+          <span className="font-display font-extrabold text-sm tracking-wider text-white group-hover:text-zinc-200 transition-colors">
             MALIXX
           </span>
         </a>
 
-        <nav className="hidden md:flex items-center gap-8">
+        {/* Desktop Nav Links */}
+        <nav className="hidden md:flex items-center gap-7">
           {links.map((l) => (
             <a
               key={l.label}
               href={l.href}
-              className="text-[13px] text-zinc-400 hover:text-white transition-colors"
+              className="text-xs font-medium text-zinc-400 hover:text-white transition-colors tracking-wide py-1"
             >
               {l.label}
             </a>
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        {/* CTA Button */}
+        <div className="hidden md:flex items-center gap-3">
           <a
             href="https://t.me/devmalixx"
             target="_blank"
             rel="noreferrer"
-            className="px-4 py-2 rounded-full bg-white text-black text-[13px] font-semibold hover:bg-zinc-200 transition-colors flex items-center gap-1.5"
+            className="px-4 py-2 rounded-full bg-white text-black text-xs font-semibold hover:bg-zinc-200 transition-all flex items-center gap-1.5 shadow-sm active:scale-95"
           >
-            Let's Talk <ArrowUpRight className="w-3.5 h-3.5" />
+            <span>Let's Talk</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
         </div>
 
+        {/* Mobile toggle */}
         <button
           type="button"
           onClick={() => setOpen(!open)}
-          className="md:hidden p-2 text-zinc-400"
-          aria-label="Menu"
+          className="md:hidden p-2 text-zinc-400 hover:text-white transition-colors"
+          aria-label="Toggle Menu"
         >
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
 
+      {/* Mobile Menu Dropdown */}
       {open && (
-        <div className="md:hidden bg-[#0a0a0e] border-t border-zinc-800/50 px-5 py-6 space-y-4">
-          {links.map((l) => (
+        <div className="md:hidden max-w-sm mx-auto mt-2 rounded-2xl bg-[#0c0d14]/95 backdrop-blur-2xl border border-white/[0.08] p-5 shadow-2xl space-y-4">
+          <div className="flex flex-col gap-3">
+            {links.map((l) => (
+              <a
+                key={l.label}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="text-sm font-medium text-zinc-300 hover:text-white py-1.5 px-2 rounded-lg hover:bg-white/[0.04] transition-colors"
+              >
+                {l.label}
+              </a>
+            ))}
+          </div>
+
+          <div className="pt-3 border-t border-white/[0.06]">
             <a
-              key={l.label}
-              href={l.href}
-              onClick={() => setOpen(false)}
-              className="block text-sm text-zinc-300 hover:text-white"
+              href="https://t.me/devmalixx"
+              target="_blank"
+              rel="noreferrer"
+              className="block w-full py-2.5 rounded-xl bg-white text-black text-xs font-semibold text-center hover:bg-zinc-200 transition-colors"
             >
-              {l.label}
+              Let's Talk on Telegram
             </a>
-          ))}
-          <a
-            href="https://t.me/devmalixx"
-            target="_blank"
-            rel="noreferrer"
-            className="block w-full py-3 rounded-full bg-white text-black text-sm font-semibold text-center"
-          >
-            Let's Talk
-          </a>
+          </div>
         </div>
       )}
     </header>

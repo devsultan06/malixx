@@ -9,7 +9,6 @@ export const ContactCTA: React.FC = () => {
     navigator.clipboard.writeText(text)
     setCopiedKey(key)
 
-    // Trigger subtle, tasteful celebratory confetti
     try {
       confetti({
         particleCount: 35,
@@ -18,8 +17,8 @@ export const ContactCTA: React.FC = () => {
         colors: ['#ffffff', '#cbd5e1', '#94a3b8'],
         disableForReducedMotion: true,
       })
-    } catch (e) {
-      // Fallback silently if confetti fails
+    } catch {
+      // Fallback silently
     }
 
     setTimeout(() => setCopiedKey(null), 2500)
@@ -27,8 +26,8 @@ export const ContactCTA: React.FC = () => {
 
   return (
     <section id="contact" className="py-24 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl border border-white/[0.14] overflow-hidden bg-gradient-to-b from-[#11131a] via-[#090a0f] to-[#050507] p-8 sm:p-12 lg:p-16 shadow-2xl">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative rounded-3xl border border-white/[0.12] overflow-hidden bg-gradient-to-b from-[#11131a] via-[#090a0f] to-[#050507] p-8 sm:p-14 lg:p-16 shadow-2xl">
           {/* Background banner art integrated with dark gradient overlay */}
           <div className="absolute inset-0 pointer-events-none opacity-20 mix-blend-screen">
             <img
@@ -39,23 +38,24 @@ export const ContactCTA: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-[#050507] via-[#090a0f]/80 to-transparent" />
           </div>
 
-          <div className="relative z-10 max-w-3xl space-y-8">
-            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-zinc-400">
-              <span className="w-2 h-2 rounded-full bg-emerald-400" />
-              <span>08 // INITIATE COLLABORATION</span>
+          {/* Centered content */}
+          <div className="relative z-10 max-w-3xl mx-auto text-center space-y-7 flex flex-col items-center">
+            {/* Clean tag without dot */}
+            <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-zinc-900/80 border border-zinc-800 text-xs font-mono uppercase tracking-widest text-zinc-400">
+              INITIATE COLLABORATION
             </div>
 
-            <h2 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-white leading-tight">
+            <h2 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-white leading-tight text-center">
               Got Something <br />
               <span className="text-silver-gradient">Worth Building?</span>
             </h2>
 
-            <p className="text-base sm:text-lg text-zinc-300 leading-relaxed max-w-2xl">
+            <p className="text-base sm:text-lg text-zinc-300 leading-relaxed max-w-2xl mx-auto text-center">
               Protocol launches, community architecture, growth campaigns, or agile project management—I'm always open to high-impact opportunities with ambitious Web3 teams.
             </p>
 
-            {/* Contact Actions Grid */}
-            <div className="pt-4 flex flex-wrap gap-3 sm:gap-4">
+            {/* Centered Contact Actions */}
+            <div className="pt-2 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
               {/* Telegram Primary */}
               <a
                 href="https://t.me/devmalixx"
@@ -73,7 +73,7 @@ export const ContactCTA: React.FC = () => {
                 href="https://x.com/devmalixx"
                 target="_blank"
                 rel="noreferrer"
-                className="px-6 py-3.5 rounded-full border border-zinc-700 bg-zinc-900/80 hover:bg-zinc-800 text-white font-semibold text-xs uppercase tracking-wider flex items-center gap-2 transition-all"
+                className="px-6 py-3.5 rounded-full border border-zinc-700 bg-zinc-900/80 hover:bg-zinc-800 text-white font-semibold text-xs uppercase tracking-wider flex items-center gap-2 transition-all active:scale-95"
               >
                 <span>X / @devmalixx</span>
                 <ArrowUpRight className="w-4 h-4 text-zinc-400" />
@@ -83,7 +83,7 @@ export const ContactCTA: React.FC = () => {
               <button
                 type="button"
                 onClick={() => handleCopy('devmalixx', 'discord')}
-                className="px-5 py-3.5 rounded-full border border-zinc-800 bg-zinc-950/80 hover:bg-zinc-900 text-zinc-300 font-mono text-xs tracking-wider flex items-center gap-2 transition-all"
+                className="px-5 py-3.5 rounded-full border border-zinc-800 bg-zinc-950/80 hover:bg-zinc-900 text-zinc-300 font-mono text-xs tracking-wider flex items-center gap-2 transition-all active:scale-95"
               >
                 <MessageSquare className="w-3.5 h-3.5 text-zinc-400" />
                 <span>Discord: devmalixx</span>
@@ -101,7 +101,7 @@ export const ContactCTA: React.FC = () => {
               <button
                 type="button"
                 onClick={() => handleCopy('malixx.growth@gmail.com', 'email')}
-                className="px-5 py-3.5 rounded-full border border-zinc-800 bg-zinc-950/80 hover:bg-zinc-900 text-zinc-300 font-mono text-xs tracking-wider flex items-center gap-2 transition-all"
+                className="px-5 py-3.5 rounded-full border border-zinc-800 bg-zinc-950/80 hover:bg-zinc-900 text-zinc-300 font-mono text-xs tracking-wider flex items-center gap-2 transition-all active:scale-95"
               >
                 <Mail className="w-3.5 h-3.5 text-zinc-400" />
                 <span>malixx.growth@gmail.com</span>

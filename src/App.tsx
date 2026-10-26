@@ -1,9 +1,7 @@
-import React from 'react'
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
 import { MarqueeStrip } from './components/MarqueeStrip'
-import { ZeldHashCaseStudy } from './components/ZeldHashCaseStudy'
-import { ProjectsGrid } from './components/ProjectsGrid'
+import { Work } from './components/Work'
 import { Services } from './components/Services'
 import { ProofOfWork } from './components/ProofOfWork'
 import { Experience } from './components/Experience'
@@ -14,40 +12,37 @@ import { Footer } from './components/Footer'
 export default function App() {
   return (
     <div className="min-h-screen bg-[#060608] text-zinc-100 flex flex-col font-sans selection:bg-white selection:text-black">
-      {/* Fixed Navigation */}
+      {/* Floating Navigation */}
       <Navbar />
 
-      {/* Main Page Flow */}
+      {/* Main Flow */}
       <main className="flex-1">
-        {/* Hero Section */}
+        {/* Hero Section with Interactive 3D Liquid Chrome & Tilt Card */}
         <Hero />
 
-        {/* Dynamic Kinetic Marquee */}
+        {/* Dynamic Infinite Marquee */}
         <MarqueeStrip />
 
-        {/* Flagship Case Study: ZeldHash Deep Dive */}
-        <ZeldHashCaseStudy />
+        {/* Unified Selected Work (ZeldHash Flagship + Ecosystem Projects) */}
+        <Work />
 
-        {/* Selected Projects Grid */}
-        <ProjectsGrid />
-
-        {/* Services & Growth Playbook */}
+        {/* Core Services & Capabilities */}
         <Services />
 
-        {/* Verifiable Proof of Work Bento */}
+        {/* Verifiable Proof of Work (Clean 6-Metric Highlights) */}
         <ProofOfWork />
 
-        {/* Chronological Career Experience */}
+        {/* Professional Experience Trajectory */}
         <Experience />
 
-        {/* Client & Founder Endorsements */}
+        {/* Client & Ecosystem Endorsements */}
         <Testimonials />
 
-        {/* High-Impact Contact CTA Banner */}
+        {/* Centered High-Impact Contact Section */}
         <ContactCTA />
       </main>
 
-      {/* Footer */}
+      {/* Spacious Editorial Footer */}
       <Footer />
     </div>
   )
