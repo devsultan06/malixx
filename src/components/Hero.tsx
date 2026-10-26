@@ -1,20 +1,20 @@
-import React, { useState } from 'react'
-import { ArrowDown, ArrowUpRight } from 'lucide-react'
-import { ThreeCanvas } from './ThreeCanvas'
+import React, { useState } from "react";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ThreeCanvas } from "./ThreeCanvas";
 
 export const Hero: React.FC = () => {
-  const [tilt, setTilt] = useState({ x: 0, y: 0 })
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect()
-    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 16
-    const y = ((e.clientY - rect.top) / rect.height - 0.5) * -16
-    setTilt({ x, y })
-  }
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 16;
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * -16;
+    setTilt({ x, y });
+  };
 
   const handleMouseLeave = () => {
-    setTilt({ x: 0, y: 0 })
-  }
+    setTilt({ x: 0, y: 0 });
+  };
 
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
@@ -32,10 +32,10 @@ export const Hero: React.FC = () => {
 
             {/* Headline with responsive sizing */}
             <h1 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.75rem] leading-[1.08] tracking-tight text-white">
-              Building{' '}
+              Building{" "}
               <span className="text-silver-gradient block sm:inline">
                 communities.
-              </span>{' '}
+              </span>{" "}
               Driving growth.
             </h1>
 
@@ -77,7 +77,7 @@ export const Hero: React.FC = () => {
               onMouseLeave={handleMouseLeave}
               style={{
                 transform: `perspective(1000px) rotateX(${tilt.y}deg) rotateY(${tilt.x}deg)`,
-                transition: 'transform 0.15s ease-out',
+                transition: "transform 0.15s ease-out",
               }}
               className="w-full max-w-[340px] sm:max-w-[360px] rounded-3xl overflow-hidden border border-white/[0.09] bg-[#0c0d13]/85 backdrop-blur-xl shadow-2xl shadow-black/80 group relative"
             >
@@ -119,16 +119,28 @@ export const Hero: React.FC = () => {
                 {/* Quantitative Stats Bar */}
                 <div className="grid grid-cols-3 gap-2 pt-3 border-t border-white/[0.06] text-center">
                   <div className="p-2 rounded-xl bg-white/[0.02]">
-                    <p className="text-base font-bold text-white tracking-tight">3,100+</p>
-                    <p className="text-[10px] text-zinc-500 uppercase tracking-wider">Followers</p>
+                    <p className="text-base font-bold text-white tracking-tight">
+                      3,100+
+                    </p>
+                    <p className="text-[10px] text-zinc-500 uppercase tracking-wider">
+                      Followers
+                    </p>
                   </div>
                   <div className="p-2 rounded-xl bg-white/[0.02]">
-                    <p className="text-base font-bold text-white tracking-tight">18.9K</p>
-                    <p className="text-[10px] text-zinc-500 uppercase tracking-wider">Posts</p>
+                    <p className="text-base font-bold text-white tracking-tight">
+                      18.9K
+                    </p>
+                    <p className="text-[10px] text-zinc-500 uppercase tracking-wider">
+                      Posts
+                    </p>
                   </div>
                   <div className="p-2 rounded-xl bg-white/[0.02]">
-                    <p className="text-base font-bold text-white tracking-tight">5+</p>
-                    <p className="text-[10px] text-zinc-500 uppercase tracking-wider">Projects</p>
+                    <p className="text-base font-bold text-white tracking-tight">
+                      5+
+                    </p>
+                    <p className="text-[10px] text-zinc-500 uppercase tracking-wider">
+                      Projects
+                    </p>
                   </div>
                 </div>
               </div>
@@ -137,5 +149,5 @@ export const Hero: React.FC = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
